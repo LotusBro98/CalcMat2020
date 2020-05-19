@@ -107,9 +107,6 @@ def impl_runge_kutt(x, y, h, a, p=1, eps=1e-1):
             J_1 = np.linalg.inv(J_)
             step = -p * np.matmul(J_1, f)
 
-            # if np.linalg.norm(step) > step_clamp:
-            #     step *= step_clamp / np.linalg.norm(step)
-
             k[:,i] += step
             # Вычисляем невязку
             y_ = y + h * np.sum(A[i] * k, axis=-1)
